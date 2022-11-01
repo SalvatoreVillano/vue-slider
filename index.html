@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+  <link rel="stylesheet" href="./css/style.css">
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <title>Vue Slider</title>
+</head>
+<body>
+
+    <main>
+        <div id="app">
+
+            <div class="container" >
+                <div class="slider-wrapper" tabindex="0">
+    
+                    <div class="item">
+                        <img :src="slides[counter].image" alt="{{slides[counter].title}}" />
+                        <div class="text">
+                            <h3>{{slides[counter].title}}</h3>
+                            <p>
+                              {{slides[counter].text}}
+                            </p>
+                        </div>
+                    </div>
+    
+                    <div class="thumbs">
+                        <div class="prev" @click="prevImg()"></div>
+                        <div class="next" @click="nextImg()"></div>
+                        <div v-for="(img, i) in slides" :key="i" :class="i === counter ? 'active' : ''"class="thumb" @click="counter=i">
+                            <img :src="img.image" :alt="img.title" >
+                        </div>
+                    </div>
+    
+                </div>
+            </div>
+    
+        </div>
+    </main>
+    <script type="text/javascript" src="./js/script.js"></script>
+</body>
+</html>
